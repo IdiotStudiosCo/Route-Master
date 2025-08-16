@@ -9,7 +9,6 @@ const __filename = fileURLToPath(import.meta.url);
 const dir = dirname(__filename);
 const dataDir = join(dir, 'data');
 const routesDir = join(dir, 'routes');
-const varConfigPath = join(dataDir, 'var-config.json')
 const configPath = join(dir, 'config.jsonc')
 const configContent = fs.readFileSync(configPath, 'utf8');
 export let config = parse(configContent);
@@ -20,7 +19,6 @@ export const dirs = {
   dir,
   dataDir,
   routesDir,
-  varConfigPath,
   configPath
 }
 
@@ -57,8 +55,6 @@ export const settings = {
   corsOptions
 };
 
-export const craftyToken = process.env.CRAFTY_TOKEN;
-
 const ApiKeysData = JSON.parse(fs.readFileSync(`${dataDir}/keys.json`, 'utf8'));
 const validApiKeys = ApiKeysData.keys || [];
 
@@ -85,23 +81,6 @@ function apiKeyCheck(req, res, next) {
 
   req.apiKey = apiKey;
   next();
-}
-function isFeatureEnabled(pathStr) {
-    try {
-        const config = JSON.parse(fs.readFileSync(varConfigPath, 'utf8'));
-        const keys = pathStr.split('.');
-        let value = config;
-
-        for (const key of keys) {
-          if (value[key] === undefined) return false;
-          value = value[key];
-        }
-
-        return value === true;
-    } catch (err) {
-        console.error("Error reading config:", err);
-        return false;
-    }
 }
 function getNextLogFile(logDir) {
   if (!fs.existsSync(logDir)) fs.mkdirSync(logDir, { recursive: true });
@@ -141,6 +120,5 @@ export const functions = {
   getNextLogFile,
   clearLogs,
   clearCurrentLogs,
-  apiKeyCheck,
-  isFeatureEnabled
+  apiKeyCheck
 };
