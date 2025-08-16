@@ -1,0 +1,40 @@
+{
+  "info": {
+    // The port the server will run on
+    "port": 3000,
+    // The Message that will be returned when the API is accessed at /
+    "getmsg": "IdiotStudios API"
+  },
+  // The Routes that will be enabled
+  // If a route is not listed here, it will be made automatically
+  "routes": {
+    "config": true,
+    "crafty": true,
+    "message": true,
+    "suggest": true
+  },
+  "cors": {
+    "origin": "*",
+    "methods": [
+      "GET",
+      "POST"
+    ]
+  },
+  "logging": {
+    // The level in which logs will be written
+    // Options: "info", "warn", "error"
+    // "info" will log all messages
+    // "warn" will log warnings and errors
+    // "error" will only log errors
+    "level": "info",
+    // The Directory where logs will be stored
+    // If the directory does not exist, it will be created automatically
+    "dir": "logs/",
+    // Weather Logging is enabled
+    // If false, no logs will be written
+    "enabled": true,
+    // Will clear logs on next server start
+    // Note it will also stop the process after clearing
+    "clearOnNextStart": false
+  }
+}

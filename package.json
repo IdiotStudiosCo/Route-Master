@@ -1,0 +1,26 @@
+{
+  "name": "route-master",
+  "version": "1.0.3",
+  "description": "Lightweight API manager for Node.js: automatically loads routes from a folder, enables per-route configuration, and provides built-in logging and log cleanup.",
+  "keywords": ["api", "express", "cors", "jsonc-parser", "node-fetch", "routes"],
+  "license": "SEE LICENSE IN LICENSE.md",
+  "author": "IdiotStudios",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "clear-logs": "node server.js -- --clear-logs"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.1",
+    "express": "^5.1.0",
+    "fs": "^0.0.1-security",
+    "jsonc-parser": "^3.3.1",
+    "node-fetch": "^3.3.2"
+  },
+  "devDependencies": {
+    "@ljharb/tsconfig": "^0.3.2"
+  }
+}
