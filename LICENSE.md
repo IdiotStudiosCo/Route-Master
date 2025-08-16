@@ -1,6 +1,6 @@
 # The Idiot License (v1.0)
 
-Copyright (c) [YEAR] [AUTHOR/PROJECT NAME]  
+Copyright (c) 2025 Idiot Studios  
 Licensed under *The Idiot License (v1.0)*
 
 ---
