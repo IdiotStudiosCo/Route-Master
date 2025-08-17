@@ -11,13 +11,17 @@ import { parse, modify, applyEdits } from 'jsonc-parser';
 import { settings, dirs, jsonc, config, functions } from './modules.js';
 
 const { PORT, VERSION, LOG_DIR } = settings;
-const { routesDir, configPath } = dirs;
+const { routesDir, configPath, dataDir } = dirs;
 const { newRaw } = jsonc;
 const { log, clearLogs, clearCurrentLogs } = functions;
 const app = express();
 
 if (!fs.existsSync(LOG_DIR)) {
   fs.mkdirSync(LOG_DIR, { recursive: true });
+}
+
+if (!fs.existsSync(dataDir)) {
+  fs.mkdirSync(dataDir, { recursive: true });
 }
 
 const shouldClearLogs = config.logging?.clearOnNextStart || process.argv.includes('--clear-logs');

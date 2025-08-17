@@ -1,0 +1,14 @@
+data/
+
+package-lock.json
+node_modules/
+logs/
+.DS_Store
+.env
+*.log
+*.tmp
+*.bak
+*.swp
+*.pid
+*.orig
+*.cache
