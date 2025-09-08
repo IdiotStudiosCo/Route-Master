@@ -144,6 +144,3 @@ Pull requests are welcome!
 * Ensure new routes are tested before submitting.
 
 ---
-
-## License
-
